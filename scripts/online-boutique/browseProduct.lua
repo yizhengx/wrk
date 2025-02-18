@@ -31,7 +31,7 @@ end
 
 local function browse_product()
   local method = "GET"
-  local path = "/product/" .. products[math.random(#products)]
+  local path = "/vo_browse_product/" .. products[math.random(#products)]
 
   local headers = {}
   return wrk.format(method, path, headers, nil)

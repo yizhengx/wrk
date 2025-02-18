@@ -12,11 +12,14 @@ products = {
     'OLJCESPC7Z'}
 -- curl -d "product_id=0PUK6V6EV0&quantity=2" -X POST http://10.111.134.111/cart -v
 local function index()
-  local method = "GET"
-  local path = "/"
+  local method = "POST"
+  local path = "/ro_home"
 
   local headers = {}
-  return wrk.format(method, path, headers, nil)
+  headers["content-type"]="application/json"
+  local body = '{"user_id": "1", "catalog_size": 6}'
+
+  return wrk.format(method, path, headers, body)
 end
 
 local function set_currency()
